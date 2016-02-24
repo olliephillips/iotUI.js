@@ -11,8 +11,11 @@ The components' supporting code ```iotUI.js``` can be offloaded to another serve
 
 ## So what have we got today
 
-So far only a thermometer, my first foray into the world of SVG, so I hope you like (any suggestions on how to improve it are always welcome) , but I have plans to build these components also:
+So far only a thermometer, my first foray into the world of SVG, so I hope you like (any suggestions on how to improve it are always welcome) , but I have plans to build these components also. 
 
+(clicking the link will take you to a demo)
+
+- [Thermometer](https://rawgit.com/olliephillips/iotUI.js/master/examples/thermometer.html)
 - Tank 
 - Dial
 - Knob,
