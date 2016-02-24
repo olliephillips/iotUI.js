@@ -21,14 +21,14 @@
 		<iotui-thermometer id="temp" height="350" width="350" val="40" max="100" min="20"></iotui-thermometer>
 	</div>	
 <script>
-window.onload(function(){	
+window.onload = function(){	
 	// Simulated new data event
 	setInterval(function(){
 		var val = Math.floor(Math.random() * ((100 - 20) + 1) + 20);
 		iotUI.thermometer.set('temp', val)
 		console.log(iotUI.thermometer.get('temp', 'val'))
 	},2000)	
-});
+}
 </script>
 <script src="https://cdn.rawgit.com/olliephillips/iotUI.js/master/iotUI.js"></script>
 </body>
