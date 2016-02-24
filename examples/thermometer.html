@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Why get Better Insured?</title>
+	<meta name="author" content="Ollie Phillips" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic' rel='stylesheet' type='text/css'>
+	<style>
+	body{background-color: #fefefe;}
+	h1 {font-size:50px; font-family:'Bitter', serif}
+	h2{font-size:20px; padding-bottom:30px; font-family:'Bitter', serif}
+	</style>
+</head>
+<body>
+	<div style="width:350px;margin-left:auto;margin-right:auto;">
+		<div style="text-align:center;">
+			<h1>iotUI.js</h1>
+			<h2>Thermometer</h2>
+		</div>	
+		<iotui-thermometer id="temp" height="350" width="350" val="40" max="100" min="20"></iotui-thermometer>
+	</div>	
+<script>
+// Simulated new data event
+setInterval(function(){
+	var val = Math.floor(Math.random() * ((100 - 20) + 1) + 20);
+	iotUI.thermometer.set('temp', val)
+	console.log(iotUI.thermometer.get('temp', 'val'))
+},2000)
+</script>
+<script src="js/iotUI.js"></script>
+</body>
+</html>
