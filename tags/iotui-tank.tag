@@ -1,6 +1,6 @@
 <iotui-tank> 
 	<div style="width:{opts.width}px;height:{opts.height}px;">
-	<svg style="width:100%;height:100%;" viewbox="-100 0 500 500" id="tank">
+	<svg style="width:100%;height:100%;" viewbox="-100 0 500 350" id="tank">
 	
 	  <g
 	     id="layer1">
