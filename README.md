@@ -1,7 +1,7 @@
 # iotUI.js
 
-It's a grand sounding name for just two controls, but that's all there is currently, just two controls - a Thermometer, and a Tank
-Totally a work-in-progress.
+It's a grand sounding name for just two controls, but that's all there is currently, just two controls - a Thermometer, and a Tank.
+This is totally a "work-in-progress".
 
 ## What does it do
 
