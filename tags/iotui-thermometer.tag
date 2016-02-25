@@ -1,6 +1,6 @@
 <iotui-thermometer> 
 	<div style="width:{opts.width}px;height:{opts.height}px;">
-	<svg style="width:100%;height:100%;" viewbox="0 0 500 500" id="svg">
+	<svg style="width:100%;height:100%;" viewbox="0 0 500 500" id="thermometer">
 	  <g
 	     id="layer1">
 	  <g
