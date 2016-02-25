@@ -1,22 +1,22 @@
 # iotUI.js
 
-It's a grand sounding name for just one control, but that's all there is currently, just one control - a thermometer.
+It's a grand sounding name for just two controls, but that's all there is currently, just two controls - a Thermometer, and a Tank
 Totally a work-in-progress.
 
 ## What does it do
 
 iotUI.js is (or hopefully will be) a suite of SVG elements for use with IoT applications. It uses Riot.js, although all the include files have been combined for ease of deployment. Using Riot.js gives us components, in summary a really simple way to setup controls in HTML, and the footprint is tiny - which is just the thing if you are serving your webpage from say an ESP8266 running Espruino, which I am. 
 
-The components' supporting code ```iotUI.js``` can be offloaded to another server, since it runs client-side in the browser.
+The components' supporting code ```iotUI.js``` can be offloaded to another server or CDN, since it runs client-side in the browser.
 
 ## So what have we got today
 
-So far only a thermometer, my first foray into the world of SVG, so I hope you like (any suggestions on how to improve it are always welcome) , but I have plans to build these components also. 
+So far only a Thermometer and a Tank, my first foray into the world of SVG, so I hope you like (any suggestions on how to improve it are always welcome) , but I have plans to build these components also. 
 
 (clicking the link will take you to a demo)
 
 - [Thermometer](https://rawgit.com/olliephillips/iotUI.js/master/examples/thermometer.html)
-- Tank 
+- [Tank](https://rawgit.com/olliephillips/iotUI.js/master/examples/tank.html)
 - Dial
 - Knob,
 - Slider
@@ -30,12 +30,17 @@ So far only a thermometer, my first foray into the world of SVG, so I hope you l
 <script src="js/iotUI.js"></script>
 ```
 
-2) Add the component to the page, and set the default values. For the thermometer we can set ```val```, ```max``` and ```min``` values as below:
+2) Add the component to the page, and set the default values.
 
 ```
+// Thermometer
 <iotui-thermometer id="temp" height="500" width="500" val="40" max="100" min="20"></iotui-thermometer>
+
+// Tank
+<iotui-tank id="tank" height="350" width="350" color="#D4AA00" val="35" max="40" min="20"></iotui-tank>
+
 ```
-3) Plan is that some components will take user input, 'setters' if you like, and other components (like the thermometer) will be 'getters', they'll do data display only. Each control will have its own 'set' or 'get' API method, depending on it's function. Maybe it will have both. I implemented both on the thermometer control, just to prove the concept.
+3) Plan is that some components will take user input, 'setters' if you like, and other components (like the thermometer) will be 'getters', they'll do data display only. Each control will have its own 'set' or 'get' API method, depending on it's function. Maybe it will have both. I implemented both on the Thermometer and Tank controls, just to prove the concept.
 
 So, let's look at the thermometer component, maybe you have Websocket, MQTT or just vanilla AJAX polling going on. How do you update the component's value?
 
