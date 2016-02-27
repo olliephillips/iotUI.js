@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>iotUI.js - Tank</title>
+	<meta name="author" content="Ollie Phillips" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic' rel='stylesheet' type='text/css'>
+	<style>
+	body{background-color: #fefefe;}
+	h1 {font-size:50px; font-family:'Bitter', serif}
+	h2{font-size:20px; padding-bottom:10px; font-family:'Bitter', serif}
+	p{font-size:18px; padding-bottom:30px; font-family:'Bitter', serif}
+	</style>
+</head>
+<body>
+	<div style="width:350px;margin-left:auto;margin-right:auto;">
+		<div style="text-align:center;">
+			<h1>iotUI.js</h1>
+			<h2>Switch</h2>
+				<div id="event" style="height:20px;">Click the switch!</div>
+			</div>	
+			<iotui-switch id="switch" height="250" width="350" state="on"></iotui-switch>
+			<p style="text-align:center;"><span style="font-weight:bold">Attributes</span><br/> 'id', 'height', 'width', and 'state'</p>
+	</div>	
+<script>
+
+function changeEventHandler(){
+	clearTimeout(tO)
+	document.getElementById('event').innerHTML= '"change" event  fired. State: ' + this.state
+	var tO = setTimeout(function(){	document.getElementById('event').innerHTML = 'Click the switch!'}, 5000)
+}
+
+window.onload = function(){	
+	// Set up our listener
+	iotUI.addListener('switch', 'change', changeEventHandler);
+}
+</script>
+<script src="https://rawgit.com/olliephillips/iotUI.js/master/iotUI.js"></script>
+</body>
+</html>
