@@ -83,7 +83,7 @@ The above will return the current val property from the component with the id of
 ## Setters, e.g Switch component
 The switch responds to user input, either mouseclick, or touch events. Both events will toggle its state between on and off. It also has API methods to switch it on and off, should you wish to do this programmatically, and most importantly it triggers a change event. You can add a listener for this event, and set a callback function so you can respond to the state change. For example you might want to start/stop publishing over MQTT, websocket or http POST.
 
-This is from the switch component's example page here. 
+This is from the switch component's example page [here](https://rawgit.com/olliephillips/iotUI.js/master/examples/switch.html). 
 
 ```
 <script>
