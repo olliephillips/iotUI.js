@@ -1,6 +1,6 @@
 # iotUI.js
 
-It's a grand sounding name for just three controls, but that's all there is currently, just three controls - a Thermometer, a Tank and a Switch.
+It's a grand sounding name for just four controls, but that's all there is currently, just four controls - a Thermometer, a Tank, a Switch and, a Controller.
 
 This is totally a "work-in-progress".
 
@@ -12,13 +12,14 @@ The components' supporting code ```iotUI.js``` can be offloaded to another serve
 
 ## So what have we got today
 
-So far only a Thermometer, Tank and, a Switch -  my first foray into the world of SVG (any suggestions on how to improve it are always welcome) - but I have plans to build these components also. 
+So far only a Thermometer, Tank, a Switch and, a Controller -  my first foray into the world of SVG (any suggestions on how to improve it are always welcome) - but I have plans to build these components also. 
 
 (clicking the link will take you to a demo)
 
 - [Thermometer](https://rawgit.com/olliephillips/iotUI.js/master/examples/thermometer.html)
 - [Tank](https://rawgit.com/olliephillips/iotUI.js/master/examples/tank.html)
 - [Switch](https://rawgit.com/olliephillips/iotUI.js/master/examples/switch.html)
+- [Controller](https://rawgit.com/olliephillips/iotUI.js/master/examples/controller.html)
 - Dial
 - Knob,
 - Slider
@@ -40,9 +41,14 @@ So far only a Thermometer, Tank and, a Switch -  my first foray into the world o
 
 // Tank
 <iotui-tank id="tank" height="350" width="350" color="#D4AA00" val="35" max="40" min="20"></iotui-tank>
+// 'color' attribute is optional
 
 // Switch
 <iotui-switch id="switch" height="250" width="350" state="on"></iotui-switch>
+
+// Controller
+<iotui-controller id="controller" height="250" width="350" val="90" min="80" max="100" step="5"></iotui-controller>
+// 'step' attribute is optional, omitting will increment/decrement the controller by 1
 
 ```
 3) Plan is that some components will take user input, 'setters' if you like, and other components (like the thermometer) will be 'getters', they'll do data display only. Each control will have its own 'set' or 'get' API method, depending on it's function, it may have both.
@@ -57,7 +63,7 @@ iotUI.thermometer.set('temp', val);
 </script>
 ```
 
-In the line above 'temp' is the id of thermometer component (look back at the code in step 2) and 'val' is a variable containing the data we want to set, maybe this is better an object so all components attributes can be updated.. I'll think about that... but basically, every time you receive data, pass it to your component using the above method.
+In the line above 'temp' is the id of Thermometer component (look back at the code in step 2) and 'val' is a variable containing the data we want to set, maybe this is better an object so all components attributes can be updated.. I'll think about that... but basically, every time you receive data, pass it to your component using the above method.
 
 A contrived example, using dummy data generated at 2 second intervals would look like this:
 
@@ -81,9 +87,9 @@ console.log(iotUI.thermometer.get('temp', 'val'));
 The above will return the current val property from the component with the id of 'temp'. You could also obtain 'max' and 'min' by substituting them in place of 'val'
 
 ## Setters, e.g Switch component
-The switch responds to user input, either mouseclick, or touch events. Both events will toggle its state between on and off. It also has API methods to switch it on and off, should you wish to do this programmatically, and most importantly it triggers a change event. You can add a listener for this event, and set a callback function so you can respond to the state change. For example you might want to start/stop publishing over MQTT, websocket or http POST.
+The Switch responds to user input, either mouseclick, or touch events. Both events will toggle its state between on and off. It also has API methods to switch it on and off, should you wish to do this programmatically, and most importantly it triggers a change event. You can add a listener for this event, and set a callback function so you can respond to the state change. For example you might want to start/stop publishing over MQTT, websocket or http POST.
 
-This is from the switch component's example page [here](https://rawgit.com/olliephillips/iotUI.js/master/examples/switch.html). 
+This is from the Switch component's example page [here](https://rawgit.com/olliephillips/iotUI.js/master/examples/switch.html). 
 
 ```
 <script>
@@ -101,7 +107,7 @@ window.onload = function(){
 ``` 
 Here, 'switch' is the id of the component, 'change' is the event to listen for, and 'changeEventHandler' is the callback function.
 
-As mentioned should you wish to control the switch programatically, use these API methods.
+As mentioned should you wish to control the Switch component programatically, use these API methods.
 
 ```
 // Get components state, 'on' or 'off'
@@ -113,6 +119,8 @@ iotUI.switch.set.on('switch');
 // Switch it off
 iotUI.switch.set.off('switch');
 ```
+
+The Controller component is also a setter and works in a very similar way. You can use 'get' and 'set' to use it programatically and it also fires a 'change' event which you can listen for and pass to a callback function in the same way as the Switch component. Check out the [Controller component examples source](https://rawgit.com/olliephillips/iotUI.js/master/examples/controller.html) for more information.
 
 ## Contributions
 
