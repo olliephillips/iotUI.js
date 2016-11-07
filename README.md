@@ -21,8 +21,9 @@ So far only a Thermometer, Tank, a Switch and, a Controller -  my first foray in
 - [Switch](https://rawgit.com/olliephillips/iotUI.js/master/examples/switch.html)
 - [Controller](https://rawgit.com/olliephillips/iotUI.js/master/examples/controller.html)
 - Dial
-- Knob,
+- Knob
 - Slider
+- [F1wheel](https://rawgit.com/olliephillips/iotUI.js/master/examples/f1wheel.html)
 
 
 ## Using
@@ -49,6 +50,9 @@ So far only a Thermometer, Tank, a Switch and, a Controller -  my first foray in
 // Controller
 <iotui-controller id="controller" height="250" width="350" val="90" min="80" max="100" step="5"></iotui-controller>
 // 'step' attribute is optional, omitting will increment/decrement the controller by 1
+
+// F1Wheel
+<iotui-f1wheel id="f1wheel" wheellabel="iotUI.js" startbuttonlabel="START/STOP" primarybuttonlabel="TOOT" secondarybuttonlabel="HONK" height="300"></iotui-f1wheel>
 
 ```
 3) Plan is that some components will take user input, 'setters' if you like, and other components (like the thermometer) will be 'getters', they'll do data display only. Each control will have its own 'set' or 'get' API method, depending on it's function, it may have both.
@@ -125,4 +129,9 @@ The Controller component is also a setter and works in a very similar way. You c
 ## Contributions
 
 Contributions are welcome. If you can build SVG controls, or can improve what's here, please do contribute.  Please fork and create a new development branch. Please take the thermometer component as representative of the style I am aiming for. Maybe there should be more flexibilty with say colors, but the main thing is that the components should look like a set. When all used on the same page none, should look out of place.
+
+## Credits
+
+`f1-wheel.svg` is based on an image by [Pitlane02](https://commons.wikimedia.org/wiki/User:Pitlane02) which can be found in original form [here](https://commons.wikimedia.org/wiki/File:Formula_one_steering_wheel_back.svg).
+The remixed version of this image, which is also licensed under [creative commons](https://en.wikipedia.org/wiki/Creative_Commons) can be found [here](https://rawgit.com/olliephillips/iotUI.js/master/svg_files/f1-wheel.svg).
 
