@@ -40,13 +40,13 @@ function ignitionHandler(){
 function driveHandler(){
 	clearTimeout(t1)
 	document.getElementById('event').innerHTML= '"drive" event fired. Value: ' + this.state.drive;
-	var t1 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
+	var t1 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000;
 }
 
 function primaryHandler(){
 	clearTimeout(t2)
 	document.getElementById('event').innerHTML= '"primarybuttonpush" event fired.';
-	t2 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
+	var t2 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
 }
 
 function secondaryHandler(){
