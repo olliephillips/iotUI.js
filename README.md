@@ -130,9 +130,9 @@ The Controller component is also a setter and works in a very similar way. You c
 
 This component has no set or get api. In the context of what it is designed for, providing a UI tool from which to steer an RC car, the api seemed irrevelant - you would program it directly.
 
-F1Wheel emits several events which can be used to over AJAX or Websocket like in the same way as the switch and controller events.
+F1Wheel emits several events which can be used over AJAX or Websocket in the same way as the switch and controller events.
 
-The events are listed below:
+The specific F1Wheel events are:
 
 * 'ignition'- values 'on' and 'off'
 * 'drive' - values 'forward', 'reverse', 'stop'
@@ -140,7 +140,9 @@ The events are listed below:
 * 'primarybuttonpush' - no values, event only
 * 'secondarybuttonpush' - no values, event only
 
-Note that the steer event is trigger in reponse to device orientation, so will not work on desktop applications
+Note that the steer event is triggered in response to device orientation changes, so will not work on desktop applications.
+
+An example 'ignition' event listener and handler function below:
 
 ```
 <script>
