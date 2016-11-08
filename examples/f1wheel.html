@@ -31,7 +31,7 @@
 	
 <script>
 function ignitionHandler(){
-	clearTimeout(t0)
+	clearTimeout(t0);
 	document.getElementById('event').innerHTML= '"ignition" event fired. Value: ' + this.state.ignition;
 	var t0 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
 }
