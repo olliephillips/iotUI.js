@@ -30,7 +30,6 @@
 		<p style="text-align:center;">Note: Steering is intended to be provided by detection of device orientation</p>
 	
 <script>
-var tO;
 function ignitionHandler(){
 	clearTimeout(t0)
 	document.getElementById('event').innerHTML= '"ignition" event fired. Value: ' + this.state.ignition;
@@ -38,19 +37,19 @@ function ignitionHandler(){
 }
 
 function driveHandler(){
-	clearTimeout(t1)
+	clearTimeout(t1);
 	document.getElementById('event').innerHTML= '"drive" event fired. Value: ' + this.state.drive;
-	var t1 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000;
+	var t1 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
 }
 
 function primaryHandler(){
-	clearTimeout(t2)
+	clearTimeout(t2);
 	document.getElementById('event').innerHTML= '"primarybuttonpush" event fired.';
 	var t2 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
 }
 
 function secondaryHandler(){
-	clearTimeout(t3)
+	clearTimeout(t3);
 	document.getElementById('event').innerHTML= '"secondarybuttonpush" event fired.';
 	var t3 = setTimeout(function(){	document.getElementById('event').innerHTML = ''},2000);
 }
