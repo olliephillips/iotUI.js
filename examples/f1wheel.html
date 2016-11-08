@@ -32,39 +32,31 @@
 <script>
 var tO;
 function ignitionHandler(){
-	clearTimeout(tO)
+	clearTimeout(t0)
 	document.getElementById('event').innerHTML= '"ignition" event fired. Value: ' + this.state.ignition;
-	tO = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
+	var t0 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
 }
 
 function driveHandler(){
-	//console.log("Event: drive");
-	//console.log(this.state.drive);
-	clearTimeout(tO)
+	clearTimeout(t1)
 	document.getElementById('event').innerHTML= '"drive" event fired. Value: ' + this.state.drive;
-	tO = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
+	var t1 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
 }
 
 function primaryHandler(){
-	//console.log("Event: primarybuttonpush");
-	clearTimeout(tO)
+	clearTimeout(t2)
 	document.getElementById('event').innerHTML= '"primarybuttonpush" event fired.';
-	tO = setTimeout(function(){	document.getElementById('event').innerHTML = ''},2000);
+	t2 = setTimeout(function(){	document.getElementById('event').innerHTML = ''}, 2000);
 }
 
 function secondaryHandler(){
-	//console.log("Event: secondarybuttonpush");
-	clearTimeout(tO)
+	clearTimeout(t3)
 	document.getElementById('event').innerHTML= '"secondarybuttonpush" event fired.';
-	tO = setTimeout(function(){	document.getElementById('event').innerHTML = ''},2000);
+	var t3 = setTimeout(function(){	document.getElementById('event').innerHTML = ''},2000);
 }
 
 function steeringHandler(){
-	//console.log("Event: steering");
-	//console.log(this.state.steering);
-	clearTimeout(tO)
 	document.getElementById('event2').innerHTML= '"steer" event  fired. Value: ' + this.state.steer;
-	tO = setTimeout(function(){	document.getElementById('event2').innerHTML = ''}, 2000);
 }
 
 window.onload = function(){	
