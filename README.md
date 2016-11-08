@@ -1,11 +1,5 @@
 # iotUI.js
 
-It's a grand sounding name for just four controls, but that's all there is currently, just four controls - a Thermometer, a Tank, a Switch and, a Controller.
-
-This is totally a "work-in-progress".
-
-## What does it do
-
 iotUI.js is (or hopefully will be) a suite of SVG elements for use with IoT applications. It uses Riot.js, although all the include files have been combined for ease of deployment. Using Riot.js gives us components, in summary a really simple way to setup controls in HTML, and the footprint is tiny - which is just the thing if you are serving your webpage from say an ESP8266 running Espruino, which I am. 
 
 The components' supporting code ```iotUI.js``` can be offloaded to another server or CDN, since it runs client-side in the browser.
