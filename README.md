@@ -12,7 +12,7 @@ The components' supporting code ```iotUI.js``` can be offloaded to another serve
 
 ## So what have we got today
 
-So far only a Thermometer, Tank, a Switch and, a Controller -  my first foray into the world of SVG (any suggestions on how to improve it are always welcome) - but I have plans to build these components also. 
+So far only a Thermometer, Tank, a Switch, a Controller and F1wheel -  my first foray into the world of SVG (any suggestions on how to improve it are always welcome) - but I have plans to build Dial, Knob, Slider components also. 
 
 (clicking the link will take you to a demo)
 
@@ -55,7 +55,7 @@ So far only a Thermometer, Tank, a Switch and, a Controller -  my first foray in
 <iotui-f1wheel id="f1wheel" wheellabel="iotUI.js" startbuttonlabel="START/STOP" primarybuttonlabel="TOOT" secondarybuttonlabel="HONK" height="300"></iotui-f1wheel>
 
 ```
-3) Plan is that some components will take user input, 'setters' if you like, and other components (like the thermometer) will be 'getters', they'll do data display only. Each control will have its own 'set' or 'get' API method, depending on it's function, it may have both.
+3) Plan is that some components will take user input, 'setters' if you like, and other components (like the thermometer) will be 'getters', they'll do data display only. Each control will have its own 'set' or 'get' API method, depending on it's function, it may have both, or as is the case with F1Wheel, neither.
 
 So, let's look at the thermometer component, maybe you have Websocket, MQTT or just vanilla AJAX polling going on. How do you update the component's value?
 
@@ -126,6 +126,35 @@ iotUI.switch.set.off('switch');
 
 The Controller component is also a setter and works in a very similar way. You can use 'get' and 'set' to use it programatically and it also fires a 'change' event which you can listen for and pass to a callback function in the same way as the Switch component. Check out the [Controller component examples source](https://rawgit.com/olliephillips/iotUI.js/master/examples/controller.html) for more information.
 
+### F1Wheel
+
+This component has no set or get api. In the context of what it is designed for, providing a UI tool from which to steer an RC car, the api seemed irrevelant - you would program it directly.
+
+F1Wheel emits several events which can be used to over AJAX or Websocket like in the same way as the switch and controller events.
+
+The events are listed below:
+
+* 'ignition'- values 'on' and 'off'
+* 'drive' - values 'forward', 'reverse', 'stop'
+* 'steer' - values 'left', 'neutral', 'right'
+* 'primarybuttonpush' - no values, event only
+* 'secondarybuttonpush' - no values, event only
+
+Note that the steer event is trigger in reponse to device orientation, so will not work on desktop applications
+
+```
+<script>
+function ignitionHandler(){
+	console.log(this.state.ignition); // on or off
+}
+
+window.onload = function(){	
+	// Set up our ignition listener, on "iotui-f1wheel" component with id "wheel1"
+	iotUI.addListener('wheel1', 'ignition', ignitionHandler);
+}
+</script>
+``` 
+
 ## Contributions
 
 Contributions are welcome. If you can build SVG controls, or can improve what's here, please do contribute.  Please fork and create a new development branch. Please take the thermometer component as representative of the style I am aiming for. Maybe there should be more flexibilty with say colors, but the main thing is that the components should look like a set. When all used on the same page none, should look out of place.
@@ -133,5 +162,6 @@ Contributions are welcome. If you can build SVG controls, or can improve what's 
 ## Credits
 
 `f1-wheel.svg` is based on an image by [Pitlane02](https://commons.wikimedia.org/wiki/User:Pitlane02) which can be found in original form [here](https://commons.wikimedia.org/wiki/File:Formula_one_steering_wheel_back.svg).
+
 The remixed version of this image, which is also licensed under [creative commons](https://en.wikipedia.org/wiki/Creative_Commons) can be found [here](https://rawgit.com/olliephillips/iotUI.js/master/svg_files/f1-wheel.svg).
 
